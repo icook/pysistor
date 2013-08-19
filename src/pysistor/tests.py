@@ -1,5 +1,5 @@
-import pysistor
+from pysistor import *
 
-class TestNode(unittest.TestCase):
+class TestFactory(unittest.TestCase):
     def test_from_dict(self):
-
+        PysistorFactory

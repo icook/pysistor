@@ -1,0 +1,27 @@
+<<<<<<< Updated upstream
+import datetime
+
+class MemoryBackend(object):
+
+    def __init__(self):
+        self.store = {}
+
+    def store(self, key, value, expire=None):
+        if expire is not None:
+            if not isinstance(expire, datetime.datetime):
+                except AttributeError("Expiry time must be a datetime object")
+        self.store[key] = (value, expire)
+
+    def expire(self, key):
+        del self.store[key]
+
+    def __getattr__(self, key:qa
+
+
+=======
+class MemoryBackend(object):
+    """ The memeory backend acts as a class suitible for testing or very simple
+    uses. Not intended for production use """
+
+    def store(
+>>>>>>> Stashed changes
