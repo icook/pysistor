@@ -1,4 +1,3 @@
-
 class WrongParamException(Exception):
     pass
 
@@ -11,27 +10,32 @@ class PysistorFactory(object):
     backends = {}
     configs = {}
 
-    def from_yaml(self, string, **kwargs):
+    @classmethod
+    def from_yaml(cls, string, **kwargs):
         """ A convenience method for from_dict """
         pass
 
-    def from_ini(self, string, prefix=None, **kwargs):
+    @classmethod
+    def from_ini(cls, string, prefix=None, **kwargs):
         """ A convenience method for from_dict """
         pass
 
-    def from_yaml_str(self, string, **kwargs):
+    @classmethod
+    def from_yaml_str(cls, string, **kwargs):
         """ A convenience method for from_dict """
         pass
 
-    def from_ini_str(self, string, prefix=None, **kwargs):
+    @classmethod
+    def from_ini_str(cls, string, prefix=None, **kwargs):
         """ A convenience method for from_dict """
         pass
 
-    def from_dict(self, **kwargs):
+    @classmethod
+    def from_dict(cls, **kwargs):
         """ Supply this function with a dictionary containing proper
         configuration information about a new backend and the backend will be
         initializaed """
-        self._build_backend(kwargs)
+        cls._build_backend(kwargs)
 
     def _build_backend(self,
                        name=None,
@@ -70,3 +74,11 @@ class PysistorFactory(object):
         inst = backend_cls(**kwargs)
         # Add to internal dict
         backends[name] = inst
+
+class BaseAdapter(object):
+    """ An empty class to test for proper passing in of adapters later on """
+
+class PyramidAdapter(BaseAdapter):
+
+    def __init__(self, request):
+
