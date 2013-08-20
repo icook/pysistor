@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+import os
+
 from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
@@ -16,6 +17,6 @@ setup (name = "pysistor",
        author_email="isaac@simpload.com",
        license = "MIT",
        test_suite="yota.tests",
-       install_requires=requires,
+       install_requires=[],
        package_dir={'': "src"}
        )
