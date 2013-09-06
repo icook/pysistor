@@ -65,7 +65,7 @@ class PysistorFactory(object):
 
         # Do our class checks
         for func in ['store', 'expire', 'get']:
-            if not callable(getattr(backend_cls, func)):
+            if not callable(getattr(backend_cls, func, None)):
                 raise InvalidImpException("Backend must implement correct "
                                           "methods")
 
@@ -89,17 +89,22 @@ class PysistorFactory(object):
         except KeyError:
             raise KeyError("Requested backend '{0}' doesn't exist".format(key))
 
-    def store(self, key, value, expire=None, backend=None):
+    def store(self, key, value, expire=None, backend=None, adapter=None):
         """ Allow user to store data in a specific backend, or the default
         backend if ommitted. """
-        self[backend].store(key, value, expire)
+        self[backend].store(key, value, expire, adapter=adapter)
 
     def expire(self, key, backend=None):
         """ Allow user to remove data in a specific backend, or the default
         backend if ommitted. """
         self[backend].expire(key)
 
-    def get(self, key, backend=None):
+    def expire_all(self, prefix="", adapter=None, backend=None):
+        """ Allow user to remove data in a specific backend, or the default
+        backend if ommitted. """
+        self[backend].expire_all(prefix, adapter=adapter)
+
+    def get(self, key, adapter=None, backend=None):
         """ Allow user to access data in a specific backend, or the default
         backend if ommitted. """
         return self[backend][key]

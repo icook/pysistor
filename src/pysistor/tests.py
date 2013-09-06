@@ -17,4 +17,3 @@ class TestFactory(unittest.TestCase):
         pysistor.Pysistor.from_dict(set_default=True)
         pysistor.Pysistor.store("test", "value")
         assert pysistor.Pysistor.get("test") == "value"
-
