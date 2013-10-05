@@ -13,10 +13,10 @@ except:
 setup (name = "pysistor",
        version = "0.1",
        description = "A Python framework for CAPTCHA tests",
+       packages=find_packages('src'),
        author="Isaac Cook",
        author_email="isaac@simpload.com",
        license = "MIT",
-       test_suite="yota.tests",
        install_requires=[],
        package_dir={'': "src"}
        )
