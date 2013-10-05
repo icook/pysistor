@@ -11,7 +11,7 @@ except:
     README = ''
 
 setup (name = "pysistor",
-       version = "0.1",
+       version = "0.1.1",
        description = "A Python framework for CAPTCHA tests",
        packages=find_packages('src'),
        author="Isaac Cook",
